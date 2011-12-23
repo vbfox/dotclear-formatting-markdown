@@ -952,12 +952,19 @@ class Markdown_Parser {
 		$codeblock = $matches[1];
 
 		$codeblock = $this->outdent($codeblock);
+        
+        $format = 'plain';
+        if (preg_match('/^--(\w*)\n/', $codeblock, $formatMatches)) {
+            $format = $formatMatches[1];
+            $codeblock = preg_replace('/^--(\w*)\n/', '', $codeblock);
+        }
+        
 		$codeblock = htmlspecialchars($codeblock, ENT_NOQUOTES);
 
 		# trim leading newlines and trailing newlines
 		$codeblock = preg_replace('/\A\n+|\n+\z/', '', $codeblock);
 
-		$codeblock = "<pre><code>$codeblock\n</code></pre>";
+		$codeblock = "<pre class='brush: $format;'>$codeblock\n</pre>";
 		return "\n\n".$this->hashBlock($codeblock)."\n\n";
 	}
 
