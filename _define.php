@@ -11,10 +11,10 @@
 # -- END LICENSE BLOCK ------------------------------------
 
 $this->registerModule(
-	/* Name */			"Markdown syntax",
+	/* Name */			"Markdown syntax fox",
 	/* Description*/		"Brings you markdown (extra) syntax for your entries",
-	/* Author */			"Michel Fortin",
-	/* Version */			'1.0-r2601',
+	/* Author */			"Michel Fortin, Julien Roncaglia",
+	/* Version */			'1.1',
 	/* Permissions */		'usage,contentadmin'
 );
 ?>
